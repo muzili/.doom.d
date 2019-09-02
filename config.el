@@ -65,25 +65,11 @@
         lsp-ui-doc-max-width 35
         lsp-ui-sideline-ignore-duplicate t))
 
-(def-package! lsp-typescript
-  :when (featurep! +javascript)
-  :hook ((js2-mode typescript-mode) . lsp-typescript-enable))
-
 (def-package! company-lsp
   :after lsp-mode
   :config
   (set-company-backend! 'lsp-mode 'company-lsp)
   (setq company-lsp-enable-recompletion t))
-
-(def-package! lsp-css
-  :when (featurep! +css)
-  :hook ((css-mode less-mode scss-mode) . lsp-css-enable))
-
-(def-package! lsp-rust
-  :when (featurep! +rust)
-  :hook (rust-mode . lsp-rust-enable)
-  :init
-  (setq lsp-rust-rls-command '("rustup" "run" "nightly" "rls")))
 
 ;(def-package! ccls
 ;  :when (featurep! +cpp)
@@ -100,6 +86,11 @@
 ;        (lsp-ccls-enable)
 ;      (user-error nil))))
 ;
+(when (featurep! +rust)
+  (after! rust
+    (add-hook 'rust-mode-hook 'lsp)))
+
+
 (when (featurep! +python)
   (after! python
     (lsp-define-stdio-client lsp-python "python"
