@@ -6,16 +6,15 @@
 ;; (package! another-package :recipe (:host github :repo "username/repo"))
 ;; (package! builtin-package :disable t)
 
-(when (package! lsp-mode)
-  (package! lsp-ui)
-  (package! company-lsp)
+;packages for golang
+;go get -u github.com/motemen/gore/cmd/gore
+;go get -u github.com/mdempsky/gocode
+;go get -u golang.org/x/tools/cmd/godoc
+;go get -u golang.org/x/tools/cmd/goimports
+;go get -u golang.org/x/tools/cmd/gorename
+;go get -u golang.org/x/tools/cmd/guru
 
-  (when (featurep! +python)
-    (package! anaconda-mode :disable t))
-
-  (when (featurep! +cpp)
-    (package! ccls)
-    (package! rtags :disable t))
-
-  (when (featurep! +sh)
-    (package! company-shell :disable t)))
+; packages for rustlang
+;rustup component add rustfmt
+;rustup component add cargo-check
+;rustup component add cargo-edit
