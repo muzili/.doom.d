@@ -23,3 +23,5 @@
 ;; CSS
 (setq web-mode-css-indent-offset 2)
 (setq css-indent-offset 2)
+
+(setq doom-font (font-spec :family "Source Code Pro" :size 18))
