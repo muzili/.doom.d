@@ -18,3 +18,5 @@
 ;rustup component add rustfmt
 ;rustup component add cargo-check
 ;rustup component add cargo-edit
+
+(package! ripgrep)
