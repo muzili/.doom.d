@@ -25,6 +25,15 @@
 (setq css-indent-offset 2)
 
 (setq doom-font (font-spec :family "Source Code Pro" :size 18))
+(after! lsp
+  ;(setq lsp-auto-guess-root t)
+  ;(setq lsp-eldoc-render-all nil)
+  ;(setq lsp-inhibit-message t)
+  ;(setq lsp-message-project-root-warning t)
+  ;(setq lsp-prefer-flymake :none)
+  ;(setq lsp-enable-snippet nil)
+  (setq lsp-file-watch-threshold 128000)
+  )
 
 ;; Takes a major-mode, a quoted hook function or a list of either
 (after! org
