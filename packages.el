@@ -20,3 +20,4 @@
 ;rustup component add cargo-edit
 
 (package! ripgrep)
+(package! undo-tree :disable t)
