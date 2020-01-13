@@ -1026,7 +1026,7 @@ package is loaded.")
                   "}\n"))
 
     (defvar modi/temporary-file-directory (let ((dir (file-name-as-directory (expand-file-name user-login-name temporary-file-directory))))))
-    (defvar modi/ox-latex-use-minted t
+    (defvar modi/ox-latex-use-minted nil 
       "Use `minted' package for listings.")
 
     (if modi/ox-latex-use-minted
