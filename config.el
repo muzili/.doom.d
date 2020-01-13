@@ -36,6 +36,7 @@
   )
 
 ;; Takes a major-mode, a quoted hook function or a list of either
+(setq org-directory "~/Orgnote")
 (after! org
   (add-to-list 'auto-mode-alist '("\\.\\(org\\|org_archive\\)$" . org-mode))
     ;; The following setting is different from the document so that you
@@ -59,7 +60,6 @@
                   ("NEXT" ("WAITING") ("CANCELLED") ("HOLD"))
                   ("DONE" ("WAITING") ("CANCELLED") ("HOLD")))))
 
-   (setq org-directory "~/Orgnote")
     (setq org-default-notes-file (concat org-directory "/capture.org"))
 
                                         ; Targets include this file and any file contributing to the agenda - up to 9 levels deep
