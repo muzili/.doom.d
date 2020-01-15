@@ -5,6 +5,11 @@
 (setq user-mail-address "muzili@gmail.com"
       user-full-name "Zhiguang Li")
 
+(when (eq window-system 'w32)
+  ;; Current value of server-auth-dir is "~\\.emacs.d\\server\\"
+  (setq default-directory "D:")
+  (setenv "HOME" "D:"))
+
 ;; Remove the request from killing emacs
 (setq confirm-kill-emacs nil)
 
