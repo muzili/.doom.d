@@ -1156,10 +1156,11 @@ package is loaded.")
 
 
 ;; ccls
+(after! ccls
 (setq ccls-initialization-options
       (if (boundp 'ccls-initialization-options)
           (append ccls-initialization-options `(:cache (:directory ,(expand-file-name "~/.ccls-cache"))))
-        `(:cache (:directory ,(expand-file-name "~/.ccls-cache")))))
+        `(:cache (:directory ,(expand-file-name "~/.ccls-cache"))))))
 
 ;; show trailing whitespace if possible
 (setq-default show-trailing-whitespace t)
