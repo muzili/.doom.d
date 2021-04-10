@@ -37,6 +37,45 @@
   ;(setq lsp-message-project-root-warning t)
   ;(setq lsp-prefer-flymake :none)
   ;(setq lsp-enable-snippet nil)
+ ;; enable log only for debug
+  (setq lsp-log-io nil)
+
+  ;; use `evil-matchit' instead
+  (setq lsp-enable-folding nil)
+
+  ;; no real time syntax check
+  (setq lsp-diagnostic-package :none)
+
+  ;; handle yasnippet by myself
+  (setq lsp-enable-snippet nil)
+
+  ;; use `company-ctags' only.
+  ;; Please note `company-lsp' is automatically enabled if installed
+  (setq lsp-enable-completion-at-point nil)
+
+  ;; turn off for better performance
+  (setq lsp-enable-symbol-highlighting nil)
+
+  ;; use ffip instead
+  (setq lsp-enable-links nil)
+
+  ;; auto restart lsp
+  (setq lsp-restart 'auto-restart)
+
+  ;; @see https://github.com/emacs-lsp/lsp-mode/pull/1498 and code related to auto configure.
+  ;; Require clients could be slow.
+  ;; I only load `lsp-clients' because it includes the js client which I'm interested
+  (setq lsp-client-packages '(lsp-clients))
+
+  ;; don't ping LSP lanaguage server too frequently
+  (defvar lsp-on-touch-time 0)
+  (defadvice lsp-on-change (around lsp-on-change-hack activate)
+    ;; don't run `lsp-on-change' too frequently
+    (when (> (- (float-time (current-time))
+                lsp-on-touch-time) 30) ;; 30 seconds
+      (setq lsp-on-touch-time (float-time (current-time)))
+      ad-do-it))
+
   (setq lsp-file-watch-threshold 128000)
   )
 
