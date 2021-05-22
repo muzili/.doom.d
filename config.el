@@ -1209,3 +1209,5 @@ package is loaded.")
   (setq lsp-rust-server 'rust-analyzer
         rustic-lsp-server 'rust-analyzer
         lsp-rust-analyzer-server-command '("~/.cargo/bin/ra_lsp_server")))
+
+(load! "+tex")
