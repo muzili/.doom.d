@@ -1,0 +1,71 @@
+# -*- mode: snippet -*-
+# name: documentclass
+# key: doc
+# --
+\documentclass[UTF8,a4paper]{ctexart}
+\usepackage{graphicx}
+\usepackage{grffile}
+\usepackage{longtable}
+\usepackage{wrapfig}
+\usepackage{rotating}
+\usepackage[normalem]{ulem}
+\usepackage{amsmath}
+\usepackage{textcomp}
+\usepackage{amssymb}
+\usepackage{capt-of}
+\usepackage{float}
+\usepackage{parskip}
+\usepackage{hyperref}
+\usepackage{listings}
+\usepackage[section]{placeins}
+\usepackage{tikz}
+\usepackage{caption}
+\usepackage{tcolorbox}
+\usepackage[mathscr]{eucal}
+\usepackage{latexsym}
+
+%%% 设置中文字体 %%%
+% https://www.zhihu.com/question/20563044
+% 衬线字体
+\setCJKmainfont[BoldFont = Source Han Sans CN,ItalicFont = FandolKai]{Source Han Serif CN}
+% 无衬线字体同上
+\setCJKsansfont[BoldFont = Source Han Sans CN,ItalicFont = FandolKai]{Source Han Sans CN}
+% 等宽字体/打印机字体
+\setCJKmonofont[BoldFont = Source Han Sans CN,ItalicFont = FandolKai]{Source Han Sans CN}
+
+\setCJKfamilyfont{zhsong}{Source Han Serif CN}
+\setCJKfamilyfont{zhhei}{Source Han Sans CN}
+\setCJKfamilyfont{zhkai}{FandolKai}
+
+%%% Prefer the free fonts %%%
+\setmainfont{Roboto Slab Light}
+\setsansfont{Roboto Light}
+\setmonofont{Roboto Mono Light}
+
+
+\usepackage{titlesec}
+
+\titleformat{\section}{\normalfont\Large\bfseries}{\makebox[30pt][l]{\thesection}}{0pt}{}
+\titleformat{\subsection}{\normalfont\large\bfseries}{\makebox[30pt][l]{\thesubsection}}{0pt}{}
+\date{}
+\title{}
+\hypersetup{
+pdfauthor={},
+pdftitle={},
+pdfkeywords={},
+pdfsubject={},
+pdfcreator={},
+pdflang={English},
+colorlinks,
+citecolor=black,
+filecolor=black,
+linkcolor=blue,
+urlcolor=blue
+}
+\begin{document}
+
+\maketitle
+%\twocolumn
+
+
+\end{document}
