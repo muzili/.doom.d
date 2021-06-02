@@ -31,6 +31,7 @@
 
 (setq doom-font (font-spec :family "Source Code Pro" :size 18))
 (after! lsp
+  (set-lsp-priority! 'clangd 1)  ; ccls has priority 0
   ;(setq lsp-auto-guess-root t)
   ;(setq lsp-eldoc-render-all nil)
   ;(setq lsp-inhibit-message t)
@@ -1201,6 +1202,12 @@ package is loaded.")
           (append ccls-initialization-options `(:cache (:directory ,(expand-file-name "~/.ccls-cache"))))
         `(:cache (:directory ,(expand-file-name "~/.ccls-cache"))))))
 
+(setq lsp-clients-clangd-args '("-j=3"
+                                "--background-index"
+                                "--clang-tidy"
+                                "--completion-style=detailed"
+                                "--header-insertion=never"))
+
 ;; show trailing whitespace if possible
 (setq-default show-trailing-whitespace t)
 
@@ -1211,3 +1218,4 @@ package is loaded.")
         lsp-rust-analyzer-server-command '("~/.cargo/bin/ra_lsp_server")))
 
 (load! "+tex")
+(global-set-key (kbd "C-.") 'isearch-forward-symbol-at-point)
