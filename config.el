@@ -1206,7 +1206,8 @@ package is loaded.")
                                 "--background-index"
                                 "--clang-tidy"
                                 "--completion-style=detailed"
-                                "--header-insertion=never"))
+                                "--enable-config"
+                                "--header-insertion=iwyu"))
 
 ;; show trailing whitespace if possible
 (setq-default show-trailing-whitespace t)
