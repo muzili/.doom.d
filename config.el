@@ -1,4 +1,7 @@
 ;;; .doom.d/config.el -*- lexical-binding: t; -*-
+;;(toggle-debug-on-error)
+(load! "encoding")
+(load! "ui")
 
 ;; Place your private configuration here
 ;; General
@@ -29,7 +32,7 @@
 (setq web-mode-css-indent-offset 2)
 (setq css-indent-offset 2)
 
-(setq doom-font (font-spec :family "Source Code Pro" :size 18))
+;(setq doom-font (font-spec :family "Source Code Pro" :size 18))
 (after! lsp
   (set-lsp-priority! 'clangd 1)  ; ccls has priority 0
   ;(setq lsp-auto-guess-root t)
@@ -1220,3 +1223,7 @@ package is loaded.")
 
 (load! "+tex")
 (global-set-key (kbd "C-.") 'isearch-forward-symbol-at-point)
+
+;; Will only work on macos/linux
+(after! counsel
+  (setq counsel-rg-base-command "rg -M 240 --with-filename --no-heading --line-number --color never %s || true"))
