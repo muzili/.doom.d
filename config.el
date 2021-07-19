@@ -1227,3 +1227,6 @@ package is loaded.")
 ;; Will only work on macos/linux
 (after! counsel
   (setq counsel-rg-base-command "rg -M 240 --with-filename --no-heading --line-number --color never %s || true"))
+
+(add-load-path! "$HOME/.emacs.d/.local/straight/repos/gendoxy")
+(load "gendoxy.el")

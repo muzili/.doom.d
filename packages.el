@@ -20,3 +20,6 @@
 ;rustup component add cargo-edit
 
 (package! ripgrep)
+
+(package! gendoxy
+  :recipe (:host github :repo "mp81ss/gendoxy"))
