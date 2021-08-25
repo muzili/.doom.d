@@ -1211,6 +1211,18 @@ package is loaded.")
                                 "--completion-style=detailed"
                                 "--enable-config"
                                 "--header-insertion=iwyu"))
+(after! cc-mode
+  (c-add-style
+   "my-cc" '("user"
+             (c-basic-offset . 2)
+             (c-offsets-alist
+              . ((innamespace . 0)
+                 (access-label . -)
+                 (case-label . 0)
+                 (member-init-intro . +)
+                 (topmost-intro . 0)
+                 (arglist-cont-nonempty . +)))))
+  (setq c-default-style "my-cc"))
 
 ;; show trailing whitespace if possible
 (setq-default show-trailing-whitespace t)
@@ -1230,3 +1242,5 @@ package is loaded.")
 
 (add-load-path! "$HOME/.emacs.d/.local/straight/repos/gendoxy")
 (load "gendoxy.el")
+
+(put 'projectile-project-compilation-cmd 'safe-local-variable #'stringp)
