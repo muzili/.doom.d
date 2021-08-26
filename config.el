@@ -1214,7 +1214,7 @@ package is loaded.")
 (after! cc-mode
   (c-add-style
    "my-cc" '("user"
-             (c-basic-offset . 2)
+             (c-basic-offset . 4)
              (c-offsets-alist
               . ((innamespace . 0)
                  (access-label . -)
@@ -1244,3 +1244,7 @@ package is loaded.")
 (load "gendoxy.el")
 
 (put 'projectile-project-compilation-cmd 'safe-local-variable #'stringp)
+
+(use-package! protobuf-mode
+  :mode
+  (("\\.proto\\'" . protobuf-mode)))
