@@ -32,6 +32,10 @@
 (setq web-mode-css-indent-offset 2)
 (setq css-indent-offset 2)
 
+;; Enable local variables
+(setq-default enable-local-variables t)
+
+
 ;(setq doom-font (font-spec :family "Source Code Pro" :size 18))
 (after! lsp
   (set-lsp-priority! 'clangd 1)  ; ccls has priority 0
