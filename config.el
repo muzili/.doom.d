@@ -953,6 +953,16 @@
     (set-charset-priority 'unicode)
     (setq default-process-coding-system '(utf-8-unix . utf-8-unix))
 
+;https://www.cnblogs.com/apirobot/p/15366984.html
+    (setq org-emphasis-regexp-components
+          '("-[:multibyte:][:space:]('\"{"
+            "-[:multibyte:][:space:].,:!?;'\")}\\["
+            "[:space:]"
+            "."
+            1))
+    (org-set-emph-re 'org-emphasis-regexp-components org-emphasis-regexp-components)
+    (org-element-update-syntax)
+
     (setq org-time-clocksum-format
           '(:hours "%d" :require-hours t :minutes ":%02d" :require-minutes t))
 
