@@ -1262,3 +1262,33 @@ package is loaded.")
 (use-package! protobuf-mode
   :mode
   (("\\.proto\\'" . protobuf-mode)))
+
+;https://github.com.cnpmjs.org/andrewpeck/doom.d
+;;; Line wrapping
+;;------------------------------------------------------------------------------
+
+(defun ap/no-wrap ()
+  (interactive)
+  (visual-line-mode 0)
+  (toggle-truncate-lines 1)
+  (visual-fill-column-mode 0))
+
+(after! text-mode
+  (setq fill-column 120)
+  ;; Disable auto fill mode in text modes
+  (remove-hook 'text-mode-hook #'auto-fill-mode)
+
+  ;; Don't wrap text modes unless we really want it
+  (remove-hook 'text-mode-hook #'+word-wrap-mode)
+
+  (defun fix-visual-fill-column-mode (&optional ARG)
+    (setq visual-fill-column-mode visual-line-mode))
+
+  ;; toggle visual-fill column mode when chaing word wrap settings
+  (advice-add '+word-wrap-mode
+              :after 'fix-visual-fill-column-mode)
+  ;;
+  ;(add-hook 'text-mode #'visual-line-mode)
+  (add-hook 'visual-line-mode-hook #'visual-fill-column-mode)
+
+)

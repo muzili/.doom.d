@@ -25,3 +25,6 @@
   :recipe (:host github :repo "mp81ss/gendoxy"))
 
 (package! protobuf-mode)
+
+;https://ruib.in/posts/enable-line-wrapping-for-org-mode/
+(package! visual-fill-column)
