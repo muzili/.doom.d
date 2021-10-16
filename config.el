@@ -1275,6 +1275,7 @@ package is loaded.")
 
 (after! text-mode
   (setq fill-column 120)
+  (setq visual-fill-column-width 120)
   ;; Disable auto fill mode in text modes
   (remove-hook 'text-mode-hook #'auto-fill-mode)
 
